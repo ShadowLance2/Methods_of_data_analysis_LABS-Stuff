@@ -1,0 +1,462 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={hw1},
+  pdfauthor={Korotkov Vitaliy},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{hw1}
+\author{Korotkov Vitaliy}
+\date{2024-10-19}
+
+\begin{document}
+\maketitle
+
+\subsection{Работа с
+данными}\label{ux440ux430ux431ux43eux442ux430-ux441-ux434ux430ux43dux43dux44bux43cux438}
+
+\subsubsection{Загрузка
+данных}\label{ux437ux430ux433ux440ux443ux437ux43aux430-ux434ux430ux43dux43dux44bux445}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.df }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"http://people.math.umass.edu/\textasciitilde{}anna/Stat597AFall2016/rnf6080.dat"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Количество строк: "}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(data.df), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Количество столбцов: "}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(data.df))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Количество строк:  5070 
+## Количество столбцов:  27
+\end{verbatim}
+
+\subsubsection{Имена
+колонок}\label{ux438ux43cux435ux43dux430-ux43aux43eux43bux43eux43dux43eux43a}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(data.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10" "V11" "V12"
+## [13] "V13" "V14" "V15" "V16" "V17" "V18" "V19" "V20" "V21" "V22" "V23" "V24"
+## [25] "V25" "V26" "V27"
+\end{verbatim}
+
+\subsubsection{Значение 5 строки 7
+столбца}\label{ux437ux43dux430ux447ux435ux43dux438ux435-5-ux441ux442ux440ux43eux43aux438-7-ux441ux442ux43eux43bux431ux446ux430}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.df[}\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\subsubsection{Вторая
+строка}\label{ux432ux442ux43eux440ux430ux44f-ux441ux442ux440ux43eux43aux430}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.df[}\DecValTok{2}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21
+## 2 60  4  2  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+##   V22 V23 V24 V25 V26 V27
+## 2   0   0   0   0   0   0
+\end{verbatim}
+
+\subsubsection{Замена заголовков
+столбцов}\label{ux437ux430ux43cux435ux43dux430-ux437ux430ux433ux43eux43bux43eux432ux43aux43eux432-ux441ux442ux43eux43bux431ux446ux43eux432}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(data.df) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"month"}\NormalTok{, }\StringTok{"day"}\NormalTok{, }\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{23}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Данная строка заменяет заголовки столбцов на ``year'', ``month'',
+``day'', и 0, 1, 2, \ldots, 23, которые соответствуют часу дня, в
+который были зафиксированы осадки.
+
+Начало таблицы:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(data.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## 1   60     4   1 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 2   60     4   2 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 3   60     4   3 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 4   60     4   4 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5   60     4   5 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 6   60     4   6 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+\end{verbatim}
+
+Конец таблицы:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tail}\NormalTok{(data.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+## 5065   80    11  25 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5066   80    11  26 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5067   80    11  27 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5068   80    11  28 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5069   80    11  29 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5070   80    11  30 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+##      23
+## 5065  0
+## 5066  0
+## 5067  0
+## 5068  0
+## 5069  0
+## 5070  0
+\end{verbatim}
+
+Последние 24 колонки представляют собой количество осадков по каждому
+часу дня.
+
+\subsubsection{Добавление колонки и построение
+гистограммы}\label{ux434ux43eux431ux430ux432ux43bux435ux43dux438ux435-ux43aux43eux43bux43eux43dux43aux438-ux438-ux43fux43eux441ux442ux440ux43eux435ux43dux438ux435-ux433ux438ux441ux442ux43eux433ux440ux430ux43cux43cux44b}
+
+Добавим новую колонку \texttt{daily}, которая будет содержать сумму
+осадков за день (по всем часам):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.df}\SpecialCharTok{$}\NormalTok{daily }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(data.df[, }\DecValTok{4}\SpecialCharTok{:}\DecValTok{27}\NormalTok{])}
+\FunctionTok{head}\NormalTok{(data.df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## 1   60     4   1 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 2   60     4   2 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 3   60     4   3 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 4   60     4   4 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5   60     4   5 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 6   60     4   6 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+##   daily
+## 1     0
+## 2     0
+## 3     0
+## 4     0
+## 5     0
+## 6     0
+\end{verbatim}
+
+Построим гистограмму для новой колонки \texttt{daily}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(data.df}\SpecialCharTok{$}\NormalTok{daily, }\AttributeTok{main =} \StringTok{"Количество осадков по дням"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Осадки"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Количество дней"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{hw1_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Мы видим, что в данных есть некорректные значения (-999), что приводит к
+неправильной интерпретации гистограммы.
+
+\subsubsection{Исправление ошибок в данных и создание нового
+датафрейма}\label{ux438ux441ux43fux440ux430ux432ux43bux435ux43dux438ux435-ux43eux448ux438ux431ux43eux43a-ux432-ux434ux430ux43dux43dux44bux445-ux438-ux441ux43eux437ux434ux430ux43dux438ux435-ux43dux43eux432ux43eux433ux43e-ux434ux430ux442ux430ux444ux440ux435ux439ux43cux430}
+
+Удалим некорректные значения (-999):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fixed.df }\OtherTok{\textless{}{-}}\NormalTok{ data.df[data.df}\SpecialCharTok{$}\NormalTok{daily }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+Построим гистограмму для исправленного датафрейма:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(fixed.df}\SpecialCharTok{$}\NormalTok{daily, }\AttributeTok{main =} \StringTok{"Количество осадков по дням (исправленные данные)"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Осадки"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Количество дней"}\NormalTok{, }\AttributeTok{breaks =} \DecValTok{80}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{hw1_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Новая гистограмма более корректна, так как она построена на данных без
+ошибочных значений.
+
+\subsection{Синтаксис и
+типизирование}\label{ux441ux438ux43dux442ux430ux43aux441ux438ux441-ux438-ux442ux438ux43fux438ux437ux438ux440ux43eux432ux430ux43dux438ux435}
+
+\subsubsection{Пример 1}\label{ux43fux440ux438ux43cux435ux440-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"4"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"15"}\NormalTok{, }\StringTok{"16"}\NormalTok{, }\StringTok{"23"}\NormalTok{, }\StringTok{"42"}\NormalTok{)}
+\FunctionTok{max}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "8"
+\end{verbatim}
+
+Функция \texttt{max()} ищет максимальное значение вектора. Поскольку все
+элементы вектора являются строками, они сравниваются лексикографически,
+по первому символу.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sort}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "15" "16" "23" "4"  "42" "8"
+\end{verbatim}
+
+Функция \texttt{sort()} сортирует строки в алфавитном порядке, опять же
+лексикографически.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# sum(v)}
+\end{Highlighting}
+\end{Shaded}
+
+Функция \texttt{sum()} не работает для строковых векторов, выдаст
+ошибку.
+
+\subsubsection{Пример 2}\label{ux43fux440ux438ux43cux435ux440-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# v2 \textless{}{-} c("5", 7, 12)}
+\CommentTok{\# v2[2] + v2[3]}
+\end{Highlighting}
+\end{Shaded}
+
+Хотя элементы вектора представлены как числа, вектор смешанного типа
+автоматически преобразуется в строковый. Следовательно, сложение вызовет
+ошибку.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df3 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{z1=}\StringTok{"5"}\NormalTok{, }\AttributeTok{z2=}\DecValTok{7}\NormalTok{, }\AttributeTok{z3=}\DecValTok{12}\NormalTok{)}
+\NormalTok{df3[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ df3[}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 19
+\end{verbatim}
+
+В данном примере элементы второго и третьего столбца могут быть сложены,
+так как они являются числовыми.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l4 }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{z1=}\StringTok{"6"}\NormalTok{, }\AttributeTok{z2=}\DecValTok{42}\NormalTok{, }\AttributeTok{z3=}\StringTok{"49"}\NormalTok{, }\AttributeTok{z4=}\DecValTok{126}\NormalTok{)}
+\NormalTok{l4[[}\DecValTok{2}\NormalTok{]] }\SpecialCharTok{+}\NormalTok{ l4[[}\DecValTok{4}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 168
+\end{verbatim}
+
+Сложение значений из второго и четвертого элементов списка работает, так
+как оба являются числами.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# l4[2] + l4[4]}
+\end{Highlighting}
+\end{Shaded}
+
+Это вызовет ошибку, так как обращение \texttt{l4{[}2{]}} и
+\texttt{l4{[}4{]}} возвращает список, а не числовые значения.
+
+\subsection{Работа с функциями и
+операторами}\label{ux440ux430ux431ux43eux442ux430-ux441-ux444ux443ux43dux43aux446ux438ux44fux43cux438-ux438-ux43eux43fux435ux440ux430ux442ux43eux440ux430ux43cux438}
+
+\subsubsection{Последовательности
+чисел}\label{ux43fux43eux441ux43bux435ux434ux43eux432ux430ux442ux435ux43bux44cux43dux43eux441ux442ux438-ux447ux438ux441ux435ux43b}
+
+Числа от 1 до 10000 с инкрементом 372:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10000}\NormalTok{, }\AttributeTok{by=}\DecValTok{372}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]    1  373  745 1117 1489 1861 2233 2605 2977 3349 3721 4093 4465 4837 5209
+## [16] 5581 5953 6325 6697 7069 7441 7813 8185 8557 8929 9301 9673
+\end{verbatim}
+
+Числа от 1 до 10000 длиной 50:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10000}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]     1.0000   205.0612   409.1224   613.1837   817.2449  1021.3061
+##  [7]  1225.3673  1429.4286  1633.4898  1837.5510  2041.6122  2245.6735
+## [13]  2449.7347  2653.7959  2857.8571  3061.9184  3265.9796  3470.0408
+## [19]  3674.1020  3878.1633  4082.2245  4286.2857  4490.3469  4694.4082
+## [25]  4898.4694  5102.5306  5306.5918  5510.6531  5714.7143  5918.7755
+## [31]  6122.8367  6326.8980  6530.9592  6735.0204  6939.0816  7143.1429
+## [37]  7347.2041  7551.2653  7755.3265  7959.3878  8163.4490  8367.5102
+## [43]  8571.5714  8775.6327  8979.6939  9183.7551  9387.8163  9591.8776
+## [49]  9795.9388 10000.0000
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{Функция
+\texttt{rep()}}{Функция rep()}}\label{ux444ux443ux43dux43aux446ux438ux44f-rep}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{times=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+\end{verbatim}
+
+Этот код повторяет весь вектор \texttt{1:5} три раза.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{each=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+\end{verbatim}
+
+Этот код повторяет каждый элемент вектора три раза.
+
+\end{document}
