@@ -1,10 +1,12 @@
 ---
 title: "hw1"
-author: "Korotkov Vitaliy"
+author: "Korotkov Vitaliy Konstantinovich"
 date: "2024-10-19"
 output:
-  pdf_document: default
+  html_document:
+    df_print: paged
   word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
